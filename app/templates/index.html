@@ -1,8 +1,12 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 {% block content %}
-
-<h1>Hello {{user.username}}</h1>
-		{% for post in posts %}
-		<div><p>{{ post.author.username }} says : {{post.body}}</p></div>
-		{% endfor %}
+	<div class="col-md-12">
+		<div class="content-box-header">
+			<div class="panel-title">Statistics</div>
+		</div>
+		<div class="content-box-large box-with-header">
+				
+		</div>
+	</div>
+		  		
 {% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+  <meta content="utf-8" http-equiv="encoding">
+    <title>Cafeteria Management</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- styles -->
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+
+  </head>
+  <body class="login-bg">
+  	<div class="header">
+	     <div class="container">
+	        <div class="row">
+	           <div class="col-md-12">
+	              <!-- Logo -->
+	              <div class="logo">
+	                 <h1><a href="index.html">Cafeteria Management</a></h1>
+	              </div>
+	           </div>
+	        </div>
+	     </div>
+	</div>
+
+	<div class="page-content container">
+		<div class="row">
+			<div class="col-md-4 col-md-offset-4">
+				<div class="login-wrapper">
+			        <div class="box">
+			            <div class="content-wrap">
+			                <h6>Sign In</h6>
+			                <input class="form-control" type="text" placeholder="E-mail address" id="email">
+			                <input class="form-control" type="password" placeholder="Password" id="pass">
+			                <div class="action">
+			                <button class="btn btn-primary signup" type="submit" id="login">Login</button>
+      		                <button class="btn btn-primary signup" type="submit" id="signup">Sign Up</button>
+		                </div>
+			            </div>
+			        </div>
+			    </div>
+			</div>
+		</div>
+	</div>
+    <script src="vendors/firebase.js"></script>
+    <script src="vendors/firebase-firestore.js"></script>
+    <script src="vendors/jquery.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/login.js"></script>
+  </body>
+</html>
