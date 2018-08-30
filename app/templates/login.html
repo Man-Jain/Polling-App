@@ -32,12 +32,13 @@
 			        <div class="box">
 			            <div class="content-wrap">
 			                <h6>Sign In</h6>
-			                <input class="form-control" type="text" placeholder="E-mail address" id="email">
-			                <input class="form-control" type="password" placeholder="Password" id="pass">
+			                <form action="/login" method="POST">
+			                <input class="form-control" type="text" placeholder="Username" name="username">
+			                <input class="form-control" type="password" placeholder="Password" name="password">
 			                <div class="action">
 			                <button class="btn btn-primary signup" type="submit" id="login">Login</button>
-      		                <button class="btn btn-primary signup" type="submit" id="signup">Sign Up</button>
-		                </div>
+		                	
+		                </div></form>
 			            </div>
 			        </div>
 			    </div>

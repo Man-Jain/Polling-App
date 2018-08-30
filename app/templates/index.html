@@ -1,12 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
-	<div class="col-md-12">
-		<div class="content-box-header">
-			<div class="panel-title">Statistics</div>
-		</div>
-		<div class="content-box-large box-with-header">
-				
-		</div>
-	</div>
+		  <div class="col-md-10">
+	  			<div class="row">
+	  				<div class="col-md-6">
+	  					<div class="content-box-large">
+			  				<div class="panel-heading">
+					            <div class="panel-title">Current Polls</div>
+					        </div>
+			  				<div class="panel-body">
+			  				<div class="alert">You have voted</div>
+			  					{% block polls %}
+			  					{% for a in poll %}
+			  					<h1>{{ poll[a].ques }}</h1>
+			  					<ul>
+			  					<li><button>{{ poll[a].c1 }}</button></li>
+			  					<li><button>{{ poll[a].c2 }}</button></li>
+			  					<li><button>{{ poll[a].c3 }}</button></li>
+			  					<li><button>{{ poll[a].c4 }}</button></li>
+			  					</ul>
+			  					{% endfor %}
+			  					{% endblock %}
+
+			  				</div>
+			  			</div>
+	  				</div>
+	  			</div>
+	  		<!--  Page content -->
+		  </div></div></div>
 		  		
 {% endblock %}

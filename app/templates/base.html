@@ -54,13 +54,12 @@
 		  <div class="col-md-2">
 		  	<div class="sidebar content-box" style="display: block;">
                 <ul class="nav">
-                    <!-- Main menu -->
-                    <li class="current"><a href="{{ url_for('index') }}"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>
-					<li><a href="{{ url_for('index') }}"><i class="glyphicon glyphicon-tasks"></i>Bookings</a></li>
-					<li><a href="{{ url_for('forms') }}"><i class="glyphicon glyphicon-tasks"></i> Add Item</a></li>
-                    <li><a href="forms2.html"><i class="glyphicon glyphicon-calendar"></i> Update Price</a></li>
-                    <li><a href="stats.html"><i class="glyphicon glyphicon-stats"></i> Statistics (Charts)</a></li>
-                    <li><a href="feedback.html"><i class="glyphicon glyphicon-pencil"></i> See Feedback</a></li>
+                    <!-- Main menu 
+                    <li class="current"><a href="{{ url_for('index') }}"><i class="glyphicon glyphicon-home"></i> Dashboard</a></li>-->
+					<li><a href="{{ url_for('index') }}"><i class="glyphicon glyphicon-tasks"></i>Current Polls</a></li>
+					<li><a href="{{ url_for('signup') }}"><i class="glyphicon glyphicon-tasks"></i>Sign Up</a></li>
+					<li><a href="{{ url_for('forms') }}"><i class="glyphicon glyphicon-tasks"></i> Add Poll</a></li>
+					<li><a href="{{ url_for('signin') }}"><i class="glyphicon glyphicon-tasks"></i>Sign In</a></li>
                 </ul>
              </div>
 		  </div>
