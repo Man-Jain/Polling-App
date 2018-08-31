@@ -40,3 +40,11 @@ class SignIn:
 	def signin_user(self, email, password):
 		user = auth.sign_in_with_email_and_password(email, password)
 		return user
+
+class Poll_Vote:
+	def submit_vote(self, choice_no, poll_id):
+		get_choice=db.child("polls-data").child("group").child("group1").child(poll_id).child('choices').get()
+		current_votes=get_choice.val()[choice_no]['votes']
+		updated_votes=current_votes+1
+		res=db.child("polls-data").child("group").child("group1").child(poll_id).child('choices').child(choice_no).child('votes').set(updated_votes)
+		return res

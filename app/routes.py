@@ -7,8 +7,7 @@ from app.firebase_connect import Get_Polls
 def index():
 	gp=Get_Polls()
 	polls=gp.get_poll_group1()
-	print(polls)
-	return render_template('index.html',poll=polls)
+	return render_template('index.html',all_polls=polls)
 
 @app.route('/forms')
 def forms():

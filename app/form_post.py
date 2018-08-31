@@ -1,23 +1,24 @@
 from flask import Flask, render_template, request
 from app import app
-from app.firebase_connect import Add_Poll, SignUp, db, SignIn
+from app.firebase_connect import *
+import json, random
 
 @app.route('/group1', methods=['POST'])
 def group1():
-	d={}
-	try:
-		ques=request.form['question_g1']
-		choice1=request.form['poll-c1']
-		choice2=request.form['poll-c2']
-		choice3=request.form['poll-c3']
-		choice4=request.form['poll-c4']
-		d={"ques":ques,"c1":choice1,"c2":choice2,"c3":choice3,"c4":choice4}
-		g1=Add_Poll()
-		g1.add_poll_group1(d)
-		return '<div class="alert">Group 1 Poll Added</div>'
-
-	except Exception as e:
-		return '<h1>No Done</h1>'
+	choice_array=[]
+	poll_dict={}
+	user_data=request.form
+	ques=request.form['question_g1']
+	i=0
+	for choice in user_data.keys():
+		choice_dict={"number":i,"string":user_data[choice], "votes":0}
+		if not choice=='question_g1':
+			choice_array.append(choice_dict)	
+		i+=1
+	choice_array={"id": random.randint(1,101),"question":ques,"choices":choice_array}
+	g1=Add_Poll()
+	g1.add_poll_group1(choice_array)
+	return json.dumps({'status':'OK'})
 
 @app.route('/group2', methods=['POST'])
 def group2():
@@ -58,3 +59,10 @@ def fbsignin():
 	print(user_data)
 	get_polls=db.child("polls-data").child("group").child("group1").get()
 	return render_template('index.html',user=user_data,polls=get_polls.val())
+
+@app.route('/vote', methods=['POST'])
+def vote():
+	poll_data=request.form
+	'''g1=Poll_Vote()
+	result=g1.submit_vote(poll_data[''], poll_data['poll-id'])'''
+	return json.dumps({'status':poll_data})

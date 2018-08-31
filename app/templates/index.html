@@ -4,24 +4,29 @@
 	  			<div class="row">
 	  				<div class="col-md-6">
 	  					<div class="content-box-large">
+	  						<div class="panel panel-default">
 			  				<div class="panel-heading">
-					            <div class="panel-title">Current Polls</div>
+					            <h4>Current Polls</h4>
 					        </div>
 			  				<div class="panel-body">
 			  				<div class="alert">You have voted</div>
-			  					{% block polls %}
-			  					{% for a in poll %}
-			  					<h1>{{ poll[a].ques }}</h1>
-			  					<ul>
-			  					<li><button>{{ poll[a].c1 }}</button></li>
-			  					<li><button>{{ poll[a].c2 }}</button></li>
-			  					<li><button>{{ poll[a].c3 }}</button></li>
-			  					<li><button>{{ poll[a].c4 }}</button></li>
-			  					</ul>
+			  				{% block polls %}
+			  					{% for poll in all_polls %}
+			  					<h3>{{ all_polls[poll]['question'] }}</h3>
+			  					<form role="form">
+			  							{% for choice in all_polls[poll]['choices'] %}
+			  							<input type = "hidden" name = "poll-id" value = {{poll}} />
+			  							<div class="radio"><label>
+  										<input type="radio" name={{choice.number}} selected>{{ choice.string }}     
+  										<span class="badge">{{choice.votes}}</span></label></div>
+			  							{% endfor %}
+			  							<button id="poll-submit-btn" class="btn btn-primary" type="button">Vote</button>
+			  						</form>
 			  					{% endfor %}
-			  					{% endblock %}
+			  				{% endblock %}
 
 			  				</div>
+			  			</div>
 			  			</div>
 	  				</div>
 	  			</div>
