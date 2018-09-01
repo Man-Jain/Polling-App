@@ -24,7 +24,7 @@
 	           <div class="col-md-12">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.html">Bootstrap Admin Theme</a></h1>
+	                 <h1><a href="index.html">Polling App</a></h1>
 	              </div>
 	           </div>
 	        </div>
@@ -39,15 +39,14 @@
 			        <div class="alert">Account Successfullly Created</div>
 			        <div class="alert_notadded">Wrong Passwords</div>
 			            <div class="content-wrap">
-			                <h6>Sign Up</h6>
-			                <form action="/fbsignup" method="POST" id="sign-up-form" >
-			                <input name="email_id" class="form-control" type="text" placeholder="Email ID">
+			            <h6>Sign Up</h6>
+			            <form action="/fbsignup" method="POST" id="sign-up-form" >
+			               	<input name="email_id" class="form-control" type="text" placeholder="Email ID">
 			                <input name="passwd" class="form-control" type="password" placeholder="Password">
 			                <input name="user-group" class="form-control" type="text" placeholder="Group Name
 			                ">
-			                			                <input name="user-name" class="form-control" type="text" placeholder="Username">
-
-			                <button type="submit">Submit</button>
+			             	<input name="user-name" class="form-control" type="text" placeholder="Username">
+			                <button class="btn btn-primary signup" type="submit">Submit</button>
 			            	</form>
 			                </div>                
 			            </div>
@@ -55,7 +54,7 @@
 
 			        <div class="already">
 			            <p>Have an account already?</p>
-			            <a href="login.html">Login</a>
+			            <a href="{{ url_for('signin') }}">Login</a>
 			        </div>
 			    </div>
 			</div>
@@ -65,11 +64,5 @@
 
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="vendors/firebase.js"></script>
-    <script src="vendors/firebase-firestore.js"></script>
-    <script src="vendors/jquery.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="js/signup.js"></script>
   </body>
 </html>

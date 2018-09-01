@@ -23,23 +23,22 @@ $(function(){
                 console.log(error);
             }
         });
-        $(function(){$("#alert-g1").show();});
+        $(function(){
+            $("#alert-g1").show();
+            $("#alert-g1").fadeOut(5000);
+        });
     });
 });
 
 $(function(){
-    $('#poll-submit-btn').click(function(){
+    $('.vote-btn').click(function(){
         $.ajax({
             url: '/vote',
-            data: $('form').serialize(),
+            data: $(this).parent().serialize(),
             type: 'POST',
-            success: function(response){
-                console.log(response);
-            },
-            error: function(error){
-                console.log(error);
-            }
+        }).done(function(response){
+            console.log(response);
+            location.reload(true);
         });
-        $(function(){$("#alert-g1").show();});
     });
 });

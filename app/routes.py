@@ -1,13 +1,19 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, session, redirect, url_for
 from app import app
-from app.firebase_connect import Get_Polls
+from app.firebase_connect import Get_Polls,Prev_Polls
 
 @app.route('/')
 @app.route('/index')
 def index():
-	gp=Get_Polls()
-	polls=gp.get_poll_group1()
-	return render_template('index.html',all_polls=polls)
+	if 'username' in session:
+		user=session['username']
+		gp=Get_Polls()
+		pp=Prev_Polls()
+		polls=gp.get_poll_by_group(session['group'])
+		prev_polls=pp.get_previous_polls(user)
+		return render_template('index.html',all_polls=polls, prev_polls=prev_polls)
+	else:
+		return redirect(url_for('signin'))
 
 @app.route('/forms')
 def forms():

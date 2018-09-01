@@ -1,13 +1,5 @@
 import pyrebase
-
-config = {
-    "apiKey": "AIzaSyCHyxuD7e8MBGlvn8HZsteayRLMDeG2dFw",
-    "authDomain": "polling-app-6df2f.firebaseapp.com",
-    "databaseURL": "https://polling-app-6df2f.firebaseio.com",
-    "projectId": "polling-app-6df2f",
-    "storageBucket": "polling-app-6df2f.appspot.com",
-    "messagingSenderId": "482250806175"
- }
+from config import config
 
 firebase = pyrebase.initialize_app(config)
 
@@ -15,19 +7,13 @@ db = firebase.database()
 auth = firebase.auth()
 
 class Add_Poll:
-	def add_poll_group1(self, poll_data):
-		db.child("polls-data").child("group").child("group1").push(poll_data)
-		return "Done"
-	def add_poll_group2(self, poll_data):
-		db.child("polls-data").child("group").child("group2").push(poll_data)
+	def add_poll(self, poll_data, group):
+		db.child("polls-data").child("group").child(group).push(poll_data)
 		return "Done"
 
 class Get_Polls:
-	def get_poll_group1(self):
-		get_polls=db.child("polls-data").child("group").child("group1").get()
-		return get_polls.val()
-	def get_poll_group2(self):
-		get_polls=db.child("polls-data").child("group").child("group1").get()
+	def get_poll_by_group(self, group):
+		get_polls=db.child("polls-data").child("group").child(group).get()
 		return get_polls.val()
 
 class SignUp:
@@ -42,9 +28,18 @@ class SignIn:
 		return user
 
 class Poll_Vote:
-	def submit_vote(self, choice_no, poll_id):
-		get_choice=db.child("polls-data").child("group").child("group1").child(poll_id).child('choices').get()
-		current_votes=get_choice.val()[choice_no]['votes']
+	def submit_vote(self, choice_no, poll_id,group,user_name):
+		get_choice=db.child("polls-data").child("group").child(group).child(poll_id).child('choices').get()
+		current_votes=get_choice.val()[int(choice_no)]['votes']
 		updated_votes=current_votes+1
-		res=db.child("polls-data").child("group").child("group1").child(poll_id).child('choices').child(choice_no).child('votes').set(updated_votes)
+		user_polls=db.child("users").child(user_name).child("prev-polls").push({"id":poll_id})
+		res=db.child("polls-data").child("group").child(group).child(poll_id).child('choices').child(choice_no).child('votes').set(updated_votes)
 		return res
+
+class Prev_Polls:
+	def get_previous_polls(self, user_name):
+		user_polls_array=[]
+		user_polls=db.child("users").child(user_name).child("prev-polls").get()
+		user_polls=user_polls.val()
+		user_polls_array=[user_polls[poll]['id'] for poll in user_polls]
+		return user_polls_array

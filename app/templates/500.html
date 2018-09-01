@@ -1,5 +1,23 @@
-{% extends 'base.html'%}
-
+{% extends "base.html" %}
 {% block content %}
-<h1>File Not Found</h1>
+		  <div class="col-md-10">
+
+	  			<div class="row">
+	  				<div class="col-md-12">
+	  					<div class="content-box-large">
+	  						<div class="panel panel-default">
+			  				<div class="panel-heading">
+					            <center><h4>Error 500 Internal Error</h4></center>
+					        </div>
+					        <div class="panel-body">
+					        	<p>What you were looking for is just not there <a href="{{ url_for('index') }}">go somewhere nice</a></p>
+			  			</div>
+			  			</div>
+	  				</div>
+	  			</div>
+	  		<!--  Page content -->
+		  </div>
+		</div>
+    </div>
+		  		
 {% endblock %}
