@@ -41,5 +41,8 @@ class Prev_Polls:
 		user_polls_array=[]
 		user_polls=db.child("users").child(user_name).child("prev-polls").get()
 		user_polls=user_polls.val()
-		user_polls_array=[user_polls[poll]['id'] for poll in user_polls]
-		return user_polls_array
+		try:
+			user_polls_array=[user_polls[poll]['id'] for poll in user_polls]
+			return user_polls_array
+		except:
+			return []
