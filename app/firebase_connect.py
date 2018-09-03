@@ -1,8 +1,22 @@
 import pyrebase
 import os
 
-config = os.environ.get('config')
-config=dict(config)
+apiKey = os.environ.get('apiKey')
+authDomain = os.environ.get('authDomain')
+databaseURL = os.environ.get('databaseURL')
+projectId = os.environ.get('polling-app-6df2f')
+storageBucket = os.environ.get('storageBucket')
+messagingSenderId = os.environ.get('messagingSenderId')
+
+config={
+	"apiKey": apiKey,
+    "authDomain": authDomain,
+    "databaseURL": databaseURL,
+    "projectId": projectId,
+    "storageBucket": storageBucket,
+    "messagingSenderId": messagingSenderId
+}
+
 firebase = pyrebase.initialize_app(config)
 
 db = firebase.database()
