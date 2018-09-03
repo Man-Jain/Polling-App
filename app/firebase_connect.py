@@ -1,6 +1,8 @@
 import pyrebase
-from config import config
+import os
 
+config = os.environ.get('config')
+config=dict(config)
 firebase = pyrebase.initialize_app(config)
 
 db = firebase.database()
@@ -20,7 +22,9 @@ class SignUp:
 	def signup_user(self, email, password, user_name, user_group):
 		user = auth.create_user_with_email_and_password(email, password)
 		data = {"email": email,"group":user_group}
+		member = {"user_name" : user_name}
 		results = db.child("users").child(user_name).set(data, user['idToken'])
+		db.child("polls-data").child("group").child(user_group).child("members").push(member)
 
 class SignIn:
 	def signin_user(self, email, password):
@@ -46,3 +50,10 @@ class Prev_Polls:
 			return user_polls_array
 		except:
 			return []
+
+class Get_Members:
+	def get_group_members(self, user_name, group):
+		get_members=db.child("polls-data").child("group").child(group).child("members").get()
+		group_members=get_members.val()
+		res=[group_members[a]['user_name'] for a in group_members]
+		return res

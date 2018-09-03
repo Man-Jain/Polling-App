@@ -1,0 +1,18 @@
+{% block group_members %}
+<div class="col-md-2">
+	<div class="row" style="display: block;">
+        <div class="content-box-large">
+        	<div class="panel panel-default">
+                <div class="panel-heading">
+                	<h5>Group Members</h5>
+                </div>
+                <div class="panel-body">
+                	{% for user in members %}
+                	<p>{{ user }}</p>
+                	{% endfor %}
+                </div>
+            </div>
+		</div>
+	</div>
+</div>
+{% endblock %}

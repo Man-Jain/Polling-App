@@ -22,17 +22,13 @@
   	<div class="header">
 	     <div class="container">
 	        <div class="row">
-	           <div class="col-md-5">
+	           <div class="col-md-11">
 	              <!-- Logo -->
 	              <div class="logo">
 	                 <h1><a href="{{ url_for('index') }}">Polling App</a></h1>
 	              </div>
 	           </div>
-	           <div class="col-md-5">
-	              <div class="row">
-	              </div>
-	           </div>
-	           	        <div class="col-md-2">
+	           <div class="col-md-1">
 	              <div class="navbar navbar-inverse" role="banner">
 	                    <ul class="nav navbar-nav">
 	                      <li>
@@ -47,16 +43,26 @@
 
     <div class="page-content">
     	<div class="row">
-		  <div class="col-md-2">
-		  	<div class="sidebar content-box" style="display: block;">
-                <ul class="nav">
-					<li><a href="{{ url_for('index') }}"><i class="glyphicon glyphicon-tasks"></i>Current Polls</a></li>
-					<li><a href="{{ url_for('forms') }}"><i class="glyphicon glyphicon-tasks"></i> Add Poll</a></li>
-                </ul>
-             </div>
-		  </div>
 
-    <div id="content">{% block content %}{% endblock %}</div>
+		    <div class="col-md-2">
+		  	  <div class="sidebar content-box" style="display: block;">
+            <ul class="nav">
+					     <li><a href="{{ url_for('index') }}"><i class="glyphicon glyphicon-tasks"></i>Current Polls</a></li>
+					     <li><a href="{{ url_for('forms') }}"><i class="glyphicon glyphicon-tasks"></i> Add Poll</a></li>
+            </ul>
+          </div>
+          <div>
+		    </div>
+      </div>
+
+        <div id="content">
+          {% block content %}{% endblock %}
+        </div>
+        {% include 'block_members.html' %}      
+
+      </div>
+  </div>
+
     <footer>
          <div class="container">
          
