@@ -1,18 +1,7 @@
 [Python]
 files = *.py, app/*.py
 language = Python
-bears = SpaceConsistencyBear, QuotesBear
+bears = QuotesBear, PEP8Bear
 preferred_quotation = '
-default_actions = *: ShowPatchAction
-[HTML]
-files = app/templates/*.html
-bears = HTMLLintBear
-default_actions = *: ShowPatchAction
-[CSS]
-files = app/static/css/*.css
-bears = CSSLintBear
-default_actions = *: ShowPatchAction
-[JS]
-files = app/static/css/*.js
-bears = ESLintBear
-default_actions = *: ShowPatchAction
+default_actions = *: ApplyPatchAction
+max_line_length = 249
