@@ -1,0 +1,18 @@
+[Python]
+files = *.py, app/*.py
+language = Python
+bears = SpaceConsistencyBear, QuotesBear
+preferred_quotation = '
+default_actions = *: ShowPatchAction
+[HTML]
+files = app/templates/*.html
+bears = HTMLLintBear
+default_actions = *: ShowPatchAction
+[CSS]
+files = app/static/css/*.css
+bears = CSSLintBear
+default_actions = *: ShowPatchAction
+[JS]
+files = app/static/css/*.js
+bears = ESLintBear
+default_actions = *: ShowPatchAction
