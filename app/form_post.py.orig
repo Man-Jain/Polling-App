@@ -28,11 +28,11 @@ def group1():
 	i=0
 	for choice in user_data.keys():
 		if choice[:7] == 'choice-':
-			choice_dict={'number':i,'string':user_data[choice], 'votes':0}
+			choice_dict={"number":i,"string":user_data[choice], "votes":0}
 			if not choice=='question_g1':
 				choice_array.append(choice_dict)	
 				i+=1
-	poll_dict={'question':ques,'choices':choice_array,'user_type':user_type,'start_date':str(start_date),'end_date':str(end_date)}
+	poll_dict={"question":ques,"choices":choice_array,"user_type":user_type,"start_date":str(start_date),"end_date":str(end_date)}
 	g1=Add_Poll()
 	g1.add_poll(poll_dict,session['group'])
 
@@ -51,11 +51,11 @@ def fbsignup():
 
 @app.route('/login', methods=['POST'])
 def login():
-	error_msg='Wrong Email/Password'
+	error_msg="Wrong Email/Password"
 	user_login=request.form
 	user_name=user_login['username']
 	passwd=user_login['password']
-	user=db.child('users').child(user_name).get()
+	user=db.child("users").child(user_name).get()
 	try:
 		email=user.val()['email']
 		group=user.val()['group']

@@ -4,6 +4,7 @@
 	  			<div class="row" id ="polls-row">
 	  				{% block polls %}
 			  		{% for poll in all_polls %}
+			  		{% if (all_polls[poll]['user_type'] == user_type) and (all_polls[poll]['start_date'] < current_date < all_polls[poll]['end_date']) %}
 	  				<div class="col-md-6">
 	  					<div class="content-box-large">
 	  						<div class="panel panel-default">
@@ -29,6 +30,7 @@
 			  			</div>
 			  			</div>
 	  				</div>
+	  				{% endif %}
 	  				{% endfor %}
 	  				{% endblock %}
 	  			</div>
