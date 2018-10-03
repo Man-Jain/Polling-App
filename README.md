@@ -1,5 +1,7 @@
 # Polling Application
 
+https://img.shields.io/badge/build-success-green.svg?longCache=true&style=flat-square
+
 This is a simple Polling Application in which a user can create polls and vote. 
 
 *Features of Application :- 
