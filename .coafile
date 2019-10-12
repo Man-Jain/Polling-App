@@ -1,4 +1,4 @@
-[Python]
+[Python code]
 files = *.py, app/*.py
 language = Python
 bears = QuotesBear
