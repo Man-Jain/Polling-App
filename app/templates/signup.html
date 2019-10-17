@@ -4,6 +4,8 @@
   <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
   <meta content="utf-8" http-equiv="encoding">
     <title>Bootstrap Admin Theme v3</title>
+	  <!-- Remove This Admin Theme v3  -->
+	  <!-- Add more Meta tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
@@ -42,9 +44,11 @@
 			            <h6>Sign Up</h6>
 			            <form action="/fbsignup" method="POST" id="sign-up-form" >
 			               	<input name="email_id" class="form-control" type="text" placeholder="Email ID">
+					    <!-- Add required -->
 			                <input name="passwd" class="form-control" type="password" placeholder="Password">
+					    <!-- Add Required -->
 			                <input name="user-group" class="form-control" type="text" placeholder="Group Name
-			                ">
+			                "> 
 			             	<input name="user-name" class="form-control" type="text" placeholder="Username">
 			                <button class="btn btn-primary signup" type="submit">Submit</button>
 			            	</form>
